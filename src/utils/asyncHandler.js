@@ -1,8 +1,10 @@
 const asyncHandler=(requestHandler)=>{
-    (req,res,next)=>{
+    return (req,res,next)=>{
         Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err))
     }
 }
+    
+
 export {asyncHandler}
 //high order function :-that take func as a paramenter or return a parameter
 /*const asyncHandler=()=>{}
