@@ -9,7 +9,7 @@ export {asyncHandler}
 //high order function :-that take func as a paramenter or return a parameter
 /*const asyncHandler=()=>{}
     const asyncHandler=(fun)=>{()=>{}}
-        const asyncHandler=()=>aync ()=>{}
+        const asyncHandler=()=>async ()=>{}
     
     */
    
