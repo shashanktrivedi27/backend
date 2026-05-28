@@ -1,10 +1,10 @@
 import mongoose, {isValidObjectId} from "mongoose"
 import {Video} from "../models/video.model.js"
 import {User} from "../models/user.model.js"
-import {Apierror, ApiError} from "../utils/apierror.js"
+import {Apierror} from "../utils/apierror.js"
 import {ApiResponse} from "../utils/apiResponse.js"
 import {asyncHandler} from "../utils/asyncHandler.js"
-import {uploadCloudinary, uploadOnCloudinary} from "../utils/cloudinary.js"
+import { uploadCloudinary} from "../utils/cloudinary.js"
 
 
 const getAllVideos = asyncHandler(async (req, res) => {
@@ -54,8 +54,8 @@ const publishAVideo = asyncHandler(async (req, res) => {
         throw new Apierror(400,"VideoFile and Thumbnail are required")
      }
 
-     const videoUpload=await uploadOnCloudinary(videoPath)
-     const thumbnailUpload=await uploadOnCloudinary(thumbnailPath)
+     const videoUpload=await uploadCloudinary(videoPath)
+     const thumbnailUpload=await uploadCloudinary(thumbnailPath)
     // TODO: get video, upload to cloudinary, create video
 
     if(!videoUpload||!thumbnailUpload){
